@@ -16,6 +16,10 @@ public class ChartGenerationSettings : ScriptableObject
     [Header("Preset")]
     public ChartDifficultyPreset difficulty = ChartDifficultyPreset.Normal;
 
+    [Header("Song Timing")]
+    public float bpm = 120f;
+    public float offset = 0f;
+
     [Header("Layout")]
     public int laneCount = 4;
 

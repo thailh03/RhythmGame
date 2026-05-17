@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &487839114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +423,7 @@ MonoBehaviour:
   laneCount: 4
   subdivision: 2
   noteChance: 0.5
+  offset: 0
   saveFileName: test_chart
 --- !u!4 &487839115
 Transform:
@@ -503,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &558633320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +568,54 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1880645563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880645565}
+  - component: {fileID: 1880645564}
+  m_Layer: 0
+  m_Name: Chart Generator Tool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1880645564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880645563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cd9c941b600214a82bb5edd58c1ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationSettings: {fileID: 11400000, guid: 5358b7d41f479bf4fb9958c115b00de2, type: 2}
+  musicSource: {fileID: 220328395}
+  saveFileName: test_chart
+  visualizer: {fileID: 540252852}
+--- !u!4 &1880645565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880645563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.39155406, y: 0.07069921, z: -0.018769369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -686,3 +735,4 @@ SceneRoots:
   - {fileID: 2084120273}
   - {fileID: 2059798730}
   - {fileID: 220328396}
+  - {fileID: 1880645565}

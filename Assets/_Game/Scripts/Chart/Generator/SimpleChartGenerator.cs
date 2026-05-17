@@ -6,6 +6,7 @@ public static class SimpleChartGenerator
         string songName,
         float bpm,
         float songLength,
+        float offset,
         int laneCount,
         int subdivision,
         float noteChance)
@@ -14,7 +15,7 @@ public static class SimpleChartGenerator
         {
             songName = songName,
             bpm = bpm,
-            offset = 0f,
+            offset = offset,
             laneCount = laneCount
         };
 

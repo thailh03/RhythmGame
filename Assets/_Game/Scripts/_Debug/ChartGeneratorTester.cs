@@ -19,6 +19,7 @@ public class ChartGeneratorTester : MonoBehaviour
     [SerializeField] private int subdivision = 2;
     [Range(0f, 1f)]
     [SerializeField] private float noteChance = 0.5f;
+    [SerializeField] private float offset = 0f;
 
     [Header("Save")]
     [SerializeField] private string saveFileName = "test_chart";
@@ -42,6 +43,8 @@ public class ChartGeneratorTester : MonoBehaviour
         {
             generationSettings.ApplyPreset();
 
+            bpm = generationSettings.bpm;
+            offset = generationSettings.offset;
             laneCount = generationSettings.laneCount;
             subdivision = generationSettings.subdivision;
             noteChance = generationSettings.noteChance;
@@ -50,12 +53,14 @@ public class ChartGeneratorTester : MonoBehaviour
             songName,
             bpm,
             songLength,
+            offset,
             laneCount,
             subdivision,
             noteChance
         );
 
         Debug.Log($"Generated chart: {generatedChart.songName}");
+        Debug.Log($"Generated chart offset: {generatedChart.offset}");
         Debug.Log($"Total Notes Before Save: {generatedChart.notes.Count}");
 
         ChartSaveLoad.Save(generatedChart, saveFileName);

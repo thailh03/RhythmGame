@@ -40,6 +40,12 @@ public class ChartPlaybackClock : MonoBehaviour
 
     public bool IsPlaying => _isPlaying;
 
+    public void SetOffset(float offset)
+    {
+        audioOffset = offset;
+    }
+
+
     private void Start()
     {
         if (playOnStart)

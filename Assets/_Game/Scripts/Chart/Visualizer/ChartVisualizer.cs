@@ -14,6 +14,11 @@ public class ChartVisualizer : MonoBehaviour
     {
         Clear();
 
+        if (chart == null || chart.notes == null)
+        {
+            Debug.LogWarning("Chart is empty.");
+            return;
+        }
         for (int i = 0; i < chart.notes.Count; i++)
         {
             NoteData note = chart.notes[i];
@@ -30,11 +35,14 @@ public class ChartVisualizer : MonoBehaviour
 
     public void Clear()
     {
-        if (noteParent == null) return;
+        if (noteParent == null)
+        {
+            return;
+        }
 
         for (int i = noteParent.childCount - 1; i >= 0; i--)
         {
-            Destroy(noteParent.GetChild(i).gameObject);
+            DestroyImmediate(noteParent.GetChild(i).gameObject);
         }
     }
 }

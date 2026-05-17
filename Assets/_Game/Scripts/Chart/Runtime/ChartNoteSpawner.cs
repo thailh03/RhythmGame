@@ -29,11 +29,22 @@ public class ChartNoteSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (!ChartSpawnDataProvider.TryGetSpawnData(chartFileName, out _spawnDataList))
+        if (!ChartSpawnDataProvider.TryGetChartAndSpawnData(
+                chartFileName,
+                out ChartData loadedChart,
+                out _spawnDataList))
         {
-            Debug.LogError("ChartNoteSpawner failed to get spawn data.");
+            Debug.LogError("ChartNoteSpawner failed to get chart and spawn data.");
             return;
         }
+
+        if (playbackClock != null)
+        {
+            playbackClock.SetOffset(loadedChart.offset);
+        }
+        Debug.Log($"Applied chart offset: {loadedChart.offset}");
+
+        ClearSpawnedNotes();
 
         _nextSpawnIndex = 0;
         _isReady = true;
@@ -136,6 +147,18 @@ public class ChartNoteSpawner : MonoBehaviour
         if (logMissingGameplayBridge)
         {
             Debug.Log($"Registered note ID {data.noteId} to NoteManager.");
+        }
+    }
+    private void ClearSpawnedNotes()
+    {
+        if (noteParent == null)
+        {
+            return;
+        }
+
+        for (int i = noteParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(noteParent.GetChild(i).gameObject);
         }
     }
 }
